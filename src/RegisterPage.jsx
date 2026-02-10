@@ -1,6 +1,11 @@
-import { Formik, Field, Form } from 'formik'
+import { Formik, Field, Form, yupToFormErrors } from 'formik'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required")
+})
 
 export default function RegisterPage() {
 
